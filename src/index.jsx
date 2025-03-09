@@ -14,6 +14,7 @@ const root = createRoot(document.getElementById("root"));
 
 root.render(
     <StrictMode>
+        {/* Оборачиваем компонент App в Provider для глобального доступа */}
         <Provider store={store}>
             <App />
         </Provider>

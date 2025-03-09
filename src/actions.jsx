@@ -9,7 +9,7 @@ export const dec = () => ({
 });
 
 // action для RND
-export const rnd = (value) => ({
+export const rnd = () => ({
     type: "RND",
-    payload: value,
+    payload: Math.floor(Math.random() * 10),
 });
