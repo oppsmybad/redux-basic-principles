@@ -1,7 +1,11 @@
 import { connect } from "react-redux";
-import * as actions from "../actions";
+import { inc, dec, rnd } from "../actions";
+import { useSelector, useDispatch } from "react-redux";
 
-const Counter = ({ counter, inc, dec, rnd }) => {
+const Counter = () => {
+    // Используем хук useSelector вытаскиваем значение counter (0)
+    const counter = useSelector((state) => state.counter);
+    const dispatch = useDispatch();
     return (
         // Возвращаем верстку через return
         <div
@@ -12,29 +16,31 @@ const Counter = ({ counter, inc, dec, rnd }) => {
             }}
         >
             <h1 id="counter">{counter}</h1>
-            <button onClick={inc} className="btn btn-primary">
+            <button onClick={() => dispatch(inc())} className="btn btn-primary">
                 INC
             </button>
-            <button onClick={dec} className="btn btn-primary">
+            <button onClick={() => dispatch(dec())} className="btn btn-primary">
                 DEC
             </button>
-            <button onClick={rnd} className="btn btn-primary">
+            <button onClick={() => dispatch(rnd())} className="btn btn-primary">
                 RND
             </button>
         </div>
     );
 };
 
-const mapStateToProps = (state) => {
-    return {
-        counter: state.value, // 0
-    };
-};
-
-// Возвращаем привязанные actions
-// const mapDispatchToProps = (dispatch) => {
-//     return bindActionCreators(actions, dispatch);
+// const mapStateToProps = (state) => {
+//     return {
+//         counter: state.value, // 0
+//     };
 // };
 
-// Привязываем mapStateToProps и mapDispatchToProps на Counter
-export default connect(mapStateToProps, actions)(Counter);
+// // Возвращаем привязанные actions
+// // const mapDispatchToProps = (dispatch) => {
+// //     return bindActionCreators(actions, dispatch);
+// // };
+
+// // Привязываем mapStateToProps и mapDispatchToProps на Counter
+// export default connect(mapStateToProps, actions)(Counter);
+
+export default Counter;
