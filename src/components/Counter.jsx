@@ -29,18 +29,4 @@ const Counter = () => {
     );
 };
 
-// const mapStateToProps = (state) => {
-//     return {
-//         counter: state.value, // 0
-//     };
-// };
-
-// // Возвращаем привязанные actions
-// // const mapDispatchToProps = (dispatch) => {
-// //     return bindActionCreators(actions, dispatch);
-// // };
-
-// // Привязываем mapStateToProps и mapDispatchToProps на Counter
-// export default connect(mapStateToProps, actions)(Counter);
-
 export default Counter;
